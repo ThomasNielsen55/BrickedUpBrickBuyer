@@ -50,9 +50,45 @@
     </div>
 
     <footer class="border-top footer text-muted" style="background-color: #FFD700">
-        <div class="container text-dark">
-            &copy; 2024 - BrickedUpBrickBuyer - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark border-top box-shadow mb-3">
+            <div class="container-fluid text-dark">
+                <a href="https://www.lego.com/en-us">
+                    <img src="~/img/Lego.png" height="50 px" />
+                </a>
+                <a asp-area="" asp-controller="Home" asp-action="Index">
+                    <img src="~/img/legologo.png" height="50 px" />
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Privacy">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Privacy">Help</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Privacy">Contact Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Privacy"><img src="~/img/face.png" height="25 px" /></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Privacy"><img src="~/img/insta.png" height="25 px" /></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Privacy"><img src="~/img/twitx.png" height="25 px" /></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
