@@ -1,24 +1,50 @@
+using BrickedUpBrickBuyer.Data;
 using BrickedUpBrickBuyer.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
 
 namespace BrickedUpBrickBuyer.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+		private IBrickRepository _brickRepository;
+		public HomeController(IBrickRepository brick)
+		{
+			_brickRepository = brick;
+		}
 
-        public HomeController(ILogger<HomeController> logger)
+		public IActionResult Index()
         {
-            _logger = logger;
+			var Bricks = _brickRepository.Orders.ToList();
+
+
+			return View(Bricks);
         }
 
-        public IActionResult Index()
+            return View();
+        }
+        public IActionResult About()
         {
             return View();
         }
-
-        public IActionResult Privacy()
+        public IActionResult AccountCreate()
+        {
+            return View();
+        }
+        public IActionResult Cart()
+        {
+            return View();
+        }
+        public IActionResult Products()
+        {
+            return View();
+        }
+        public IActionResult Login()
+        {
+            return View();
+        }
+        public IActionResult SelectedProduct()
         {
             return View();
         }

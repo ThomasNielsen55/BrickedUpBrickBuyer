@@ -1,7 +1,17 @@
+using BrickedUpBrickBuyer.Data;
+using Microsoft.EntityFrameworkCore;
+
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddDbContext<BrickContext>(options =>
+{
+    options.UseSqlite(builder.Configuration["ConnectionStrings:Connection"]);
+});
+builder.Services.AddScoped<IBrickRepository, EFBrickRepository>();
 
 var app = builder.Build();
 
