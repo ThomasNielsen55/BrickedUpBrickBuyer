@@ -25,8 +25,7 @@ namespace BrickedUpBrickBuyer.Controllers
 			return View(Bricks);
         }
 
-            return View();
-        }
+           
         public IActionResult About()
         {
             return View();
