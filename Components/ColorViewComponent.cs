@@ -33,6 +33,13 @@ namespace BrickedUpBrickBuyer.Components
             };
 
 
+            //foreach (var m in viewModel.Categories)
+            //{
+            //    m = m.Split('-').FirstOrDefault();
+            //}
+            var modifiedCategories = viewModel.Categories.Select(m => m.Split(" - ").FirstOrDefault()).Distinct().ToList();
+
+            viewModel.Categories = modifiedCategories;
 
 
             return View(viewModel);
