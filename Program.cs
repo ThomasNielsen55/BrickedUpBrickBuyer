@@ -9,7 +9,7 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddDbContext<BrickContext>(options =>
 {
-    options.UseSqlite(builder.Configuration["ConnectionStrings:Connection"]);
+    options.UseSqlServer(builder.Configuration["ConnectionStrings:BrickConnection"]);
 });
 builder.Services.AddScoped<IBrickRepository, EFBrickRepository>();
 

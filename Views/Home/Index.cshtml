@@ -1,7 +1,7 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
-@model List<Order>
+@model List<Customer>
 
 <div class="text-center">
     <h1 class="display-4">HI</h1>
@@ -10,6 +10,6 @@
 <div class="text-center">
 @foreach (var x in Model)
 {
-    <p>hi @x.Amount</p>
+    <p>hi @x.customer_ID</p>
 }
-</div>
+</div> 
