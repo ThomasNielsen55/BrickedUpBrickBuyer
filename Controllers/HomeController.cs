@@ -40,10 +40,25 @@ namespace BrickedUpBrickBuyer.Controllers
         }
         public IActionResult Products(string primaryColor, string category)
         {
+            //var products = _brickRepository.Products;
+            //var ViewModel= new FilterViewModel
+
+            //{
+            //    Categories = _brickRepository.Products
+            // .Select(x => x.Category ?? "")
+            // .Where(x => !string.IsNullOrWhiteSpace(x))
+            // .Distinct()
+            // .OrderBy(x => x)
+            //};
+
+            //var modifiedCategories = ViewModel.Categories.Select(m => m.Split(" - ").FirstOrDefault()).ToList();
+
+            //ViewModel.Categories = modifiedCategories;
+            
             var productInfos = new ProductsPagesViewModel
             {
                 Products = _brickRepository.Products
-                .Where(x => (primaryColor ==null || x.PrimaryColor == primaryColor || x.SecondaryColor == primaryColor) && (x.Category == category || category ==null))
+                .Where(x => (primaryColor ==null || x.PrimaryColor == primaryColor || x.SecondaryColor == primaryColor) && (x.Category.Contains(category) || category ==null))
 
                 .OrderBy(x => x.Name),
                 CurrentColor = primaryColor,
