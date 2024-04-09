@@ -1,3 +1,4 @@
+using BrickedUpBrickBuyer.Components;
 using BrickedUpBrickBuyer.Data;
 using Microsoft.EntityFrameworkCore;
 
@@ -12,6 +13,8 @@ builder.Services.AddDbContext<BrickContext>(options =>
     options.UseSqlServer(builder.Configuration["ConnectionStrings:BrickConnection"]);
 });
 builder.Services.AddScoped<IBrickRepository, EFBrickRepository>();
+builder.Services.AddTransient<ColorViewComponent>();
+
 
 var app = builder.Build();
 
@@ -30,8 +33,9 @@ app.UseRouting();
 
 app.UseAuthorization();
 
-app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+app.MapControllerRoute("catandcol", "Products/CategoryandColor/{category}/{primaryColor}", new { Controller = "Home", action = "Products" });
+app.MapControllerRoute("cat", "Products/Category/{category}", new { Controller = "Home", action = "Products" });
+app.MapControllerRoute("pubType", "Products/{primaryColor}", new { Controller = "Home", action = "Products"});
+app.MapDefaultControllerRoute();
 
 app.Run();

@@ -3,10 +3,10 @@
 	public interface IBrickRepository
 	{
 		
-		List<Customer> Customers { get; }
-		List<LineItem> LineItems { get; }
-		List<Order> Orders { get; }
-		List<Product> Products { get; }
+		public IQueryable<Customer> Customers { get; }
+        public IQueryable<LineItem> LineItems { get; }
+        public IQueryable<Order> Orders { get; }
+        public IQueryable<Product> Products { get; }
 
 
 	}

@@ -1,0 +1,43 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@using BrickedUpBrickBuyer.Data.ViewModels
+
+@model FilterViewModel
+
+<div class="d-grid gap-2">
+    <h2>Category Selection</h2>
+
+    <div>
+        <label class="form-check-label">
+            <input type="radio" name="category" class="form-check-input" asp-controller="Home" asp-action="Index" asp-route-publisherType="" asp-route-pageNum="1"> All
+        </label>
+    </div>
+    @foreach (string category in Model.Categories ?? Enumerable.Empty<string>())
+    {
+        <div>
+            <label class="form-check-label">
+                <input type="radio" name="category" class="form-check-input @(category == ViewBag.SelectedCategory ? "btn-primary" : "btn-outline-secondary")" asp-controller="Home" asp-action="Products" asp-route-category="@category" asp-route-pageNum="1" style="margin-right: 5px;">@category
+            </label>
+        </div>
+    }
+    <h2>Color Selection</h2>
+    <div>
+        <label class="form-check-label">
+            <input type="radio" name="category" class="form-check-input" asp-controller="Home" asp-action="Index" asp-route-publisherType="" asp-route-pageNum="1"> All
+        </label>
+    </div>
+    @foreach (string primaryColor in Model.PrimaryColors ?? Enumerable.Empty<string>())
+    {
+        <div style="margin-top: 5px;">
+            <label class="form-check-label">
+                <input type="radio" name="color" class="form-check-input @(primaryColor == ViewBag.SelectedPrimaryColor ? "btn-primary" : "btn-outline-secondary")" asp-controller="Home" asp-action="Products" asp-route-primaryColor="@primaryColor" asp-route-pageNum="1" style="margin-right: 5px;">@primaryColor
+            </label>
+        </div>
+    }
+</div>
+
+
+
