@@ -19,11 +19,4 @@
     </PackageReference>
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Components\" />
-    <Folder Include="Data\ViewModels\" />
-    <Folder Include="Infrastructure\" />
-    <Folder Include="Views\Shared\Components\" />
-  </ItemGroup>
-
 </Project>

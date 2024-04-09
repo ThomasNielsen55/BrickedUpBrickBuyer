@@ -1,7 +1,10 @@
 using BrickedUpBrickBuyer.Data;
+using BrickedUpBrickBuyer.Data.ViewModels;
+
 using BrickedUpBrickBuyer.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using static System.Reflection.Metadata.BlobBuilder;
 
 namespace BrickedUpBrickBuyer.Controllers
 {
@@ -37,9 +40,18 @@ namespace BrickedUpBrickBuyer.Controllers
         {
             return View();
         }
-        public IActionResult Products()
+        public IActionResult Products(string primaryColor, string category)
         {
-            return View();
+            var productInfos = new ProductsPagesViewModel
+            {
+                Products = _brickRepository.Products
+                .Where(x => (primaryColor ==null || x.PrimaryColor == primaryColor || x.SecondaryColor == primaryColor) && (x.Category == category || category ==null))
+
+                .OrderBy(x => x.Name),
+                CurrentColor = primaryColor,
+                CurrentCategory = category,
+            }; 
+            return View(productInfos);
         }
         public IActionResult Login()
         {

@@ -7,9 +7,9 @@
 		{
 			_context = temp;
 		}
-		public List<Customer> Customers => _context.Customers.ToList();
-		public List<LineItem> LineItems => _context.LineItems.ToList();
-		public List<Order> Orders => _context.Orders.ToList();
-		public List<Product> Products => _context.Products.ToList();
+		public IQueryable<Customer> Customers => _context.Customers;
+		public IQueryable<LineItem> LineItems => _context.LineItems;
+		public IQueryable<Order> Orders => _context.Orders;
+		public IQueryable<Product> Products => _context.Products;
 	}
 }
