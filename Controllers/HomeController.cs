@@ -1,3 +1,4 @@
+using BrickedUpBrickBuyer.Data;
 using BrickedUpBrickBuyer.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
@@ -6,16 +7,18 @@ namespace BrickedUpBrickBuyer.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+		private IBrickRepository _brickRepository;
+		public HomeController(IBrickRepository brick)
+		{
+			_brickRepository = brick;
+		}
 
-        public HomeController(ILogger<HomeController> logger)
+		public IActionResult Index()
         {
-            _logger = logger;
-        }
+			var Bricks = _brickRepository.Orders.ToList();
 
-        public IActionResult Index()
-        {
-            return View();
+
+			return View(Bricks);
         }
 
         public IActionResult Privacy()
