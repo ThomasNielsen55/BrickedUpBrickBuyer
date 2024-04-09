@@ -4,9 +4,6 @@ using BrickedUpBrickBuyer.Data.ViewModels;
 //using BrickedUpBrickBuyer.Models;
 //using BrickedUpBrickBuyer.Models;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using System.Diagnostics;
-using static System.Reflection.Metadata.BlobBuilder;
 
 namespace BrickedUpBrickBuyer.Controllers
 {
