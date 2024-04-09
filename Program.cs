@@ -1,7 +1,15 @@
+using BrickedUpBrickBuyer.Models;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddDbContext<BrickedUpBrickBuyerContext>(options =>
+{
+    options.UseSqlServer(builder.Configuration["ConnectionStrings:BrickConnection"]);
+});
 
 var app = builder.Build();
 

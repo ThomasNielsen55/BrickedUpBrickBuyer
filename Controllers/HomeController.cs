@@ -1,32 +1,27 @@
 using BrickedUpBrickBuyer.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
 
 namespace BrickedUpBrickBuyer.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        private BrickedUpBrickBuyerContext _context;
+        public HomeController(BrickedUpBrickBuyerContext temp)
         {
-            _logger = logger;
+            _context = temp;
         }
 
-        public IActionResult Index()
+            public IActionResult Index()
         {
+            ViewBag.Customer = _context.Customers
+               .OrderBy(x => x.customer_ID)
+               .ToList();
+
+
             return View();
         }
-
-        public IActionResult Privacy()
-        {
-            return View();
-        }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
+ 
     }
 }
