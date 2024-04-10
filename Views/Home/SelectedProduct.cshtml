@@ -10,13 +10,39 @@
 <br />
 <br />
 <br />
+<div class="hidden"> @Model.ProductId</div>
 <div class="container">
     <div class="row">
         <div class="col-1"></div>
-        <div class="col-10" style="background-color: #272D6D;">
-            <h1></h1>
+        <div class="col-8" style="background-color: #272D6D;">
+            <h1>@Model.Name</h1>
+        </div>
+        <div class="col-2" style="background-color: #272D6D;">
+            <h3>@Model.Category (@Model.Year)</h3>
         </div>
         <div class="col-1"></div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-7">
+            <img src=@Model.ImgLink class="img-fluid" alt=$"Image of {@Model.Year} {@Model.Name}" />
+        </div>
+        <div class="col-5">
+            <div style="background-color: #F3F3FC; border-radius: 20px;">
+                <p>
+                    @Model.Description
+                </p>
+            </div>
+            <br />
+            <div>
+                <div><p>Peices: @Model.NumParts</p></div>
+                <br />
+                <div><p>Price: @Model.Price</p></div>
+            </div>
+            <div style="background-color: #ffd700; border-color: #E3000B; border-width: 1px; border-radius: 10px;">
+                <form action="/" method="post"></form>
+            </div>
+        </div>
     </div>
 </div>
 
