@@ -84,10 +84,11 @@ namespace BrickedUpBrickBuyer.Controllers
         {
             return View();
         }
-        public IActionResult SelectedProduct(int Productnum = 1)
+        public IActionResult SelectedProduct(int Productnumba = 1)
         {
-            Product Productguy = _brickRepository.Products
-                .Where(x => x.ProductId == Productnum)
+            var Productguy = new Product();
+            Productguy = _brickRepository.Products.ToList()
+                .Where(x => x.ProductId == Productnumba)
                 .FirstOrDefault();
 
             return View(Productguy);
