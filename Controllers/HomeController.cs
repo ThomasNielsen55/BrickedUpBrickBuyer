@@ -63,6 +63,11 @@ namespace BrickedUpBrickBuyer.Controllers
             }; 
             return View(productInfos);
         }
+        public IActionResult Privacy()
+        {
+            return View();
+        }
+
         public IActionResult Login()
         {
             return View();
