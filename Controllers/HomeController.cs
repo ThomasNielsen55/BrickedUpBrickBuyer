@@ -67,6 +67,14 @@ namespace BrickedUpBrickBuyer.Controllers
         {
             return View();
         }
+        public IActionResult Confirmation()
+        {
+            return View();
+        }
+        public IActionResult Review()
+        {
+            return View();
+        }
         public IActionResult Contact()
         {
             return View();
