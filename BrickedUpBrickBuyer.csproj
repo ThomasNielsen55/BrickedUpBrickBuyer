@@ -24,6 +24,7 @@
     <Folder Include="Components\" />
     <Folder Include="Infrastructure\" />
     <Folder Include="Migrations\" />
+    <Folder Include="Views\Home\Admin\" />
     <Folder Include="Views\Shared\Components\" />
   </ItemGroup>
 

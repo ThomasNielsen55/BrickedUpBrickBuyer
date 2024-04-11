@@ -20,7 +20,6 @@ namespace BrickedUpBrickBuyer.Controllers
         {
 			var Bricks = _brickRepository.Customers.ToList();
 
-
 			return View(Bricks);
         }
 
@@ -92,6 +91,40 @@ namespace BrickedUpBrickBuyer.Controllers
                 .FirstOrDefault();
 
             return View(Productguy);
+        }
+
+        public IActionResult ReviewOrders()
+        {
+            var records = _repo.Orders
+                .OrderByDescending(x => x.Date)
+                .Take(20)
+                .ToList(); // Fetch the 20 most recent orders
+            var predictions = new List<OrderPrediction>(); // Your viewmodel here :)
+
+            var class_type_dict = new Dictionary<int, string>
+                {
+                    { 0, "Not Fraud"},
+                    { 1, "Fraud"}
+                };
+
+            foreach (var record in records) 
+            {
+                var input = new List<float>
+                {
+                    (float)record.time,
+                    (float)(record.amount ?? 0),
+
+                    // Check the dummy code (country of residence is on a different table than gender and everything else... idk)
+                    record.country_of_residence == "India" ? 1 : 0,
+                    record.country_of_residence == "Russia" ? 1 : 0,
+                    record.country_of_residence == "USA" ? 1 : 0,
+                    record.country_of_residence == "UnitedKingdom" ? 1 : 0, //IDK IF THIS UnitedKingdom is the right format or if it should be United_Kingdom
+
+                    record.gender
+                }
+            }
+
+            return View(predictions);
         }
 
         //[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
