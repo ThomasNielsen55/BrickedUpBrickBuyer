@@ -120,7 +120,33 @@ namespace BrickedUpBrickBuyer.Controllers
                     record.country_of_residence == "USA" ? 1 : 0,
                     record.country_of_residence == "UnitedKingdom" ? 1 : 0, //IDK IF THIS UnitedKingdom is the right format or if it should be United_Kingdom
 
-                    record.gender
+                    record.gender == "M" ? 1 : 0, //is it M or male or Male or what??
+
+                    record.DayOfWeek == "Mon" ? 1 : 0,
+                    record.DayOfWeek == "Sat" ? 1 : 0,
+                    record.DayOfWeek == "Sun" ? 1 : 0,
+                    record.DayOfWeek == "Thu" ? 1 : 0,
+                    record.DayOfWeek == "Tue" ? 1 : 0,
+                    record.DayOfWeek == "Wed" ? 1 : 0,
+
+                    record.EntryMode == "PIN" ? 1 : 0,
+                    record.EntryMode == "Tap" ? 1 : 0,
+
+                    record.TypeOfTransaction == "Online" ? 1 : 0,
+                    record.TypeOfTransaction == "POS" ? 1 : 0,
+
+                    record.CountryOfTransaction == "India" ? 1 : 0,
+                    record.CountryOfTransaction == "Russia" ? 1 : 0,
+                    record.CountryOfTransaction == "USA" ? 1 : 0,
+                    record.CountryOfTransaction == "UnitedKingdom" ? 1 : 0,
+
+                    record.ShippingAddress == "India" ? 1 : 0,
+                    record.ShippingAddress == "Russia" ? 1 : 0,
+                    record.ShippingAddress == "USA" ? 1 : 0,
+                    record.ShippingAddress == "UnitedKingdom" ? 1 : 0,
+
+                    record.Bank == 
+
                 }
             }
 
