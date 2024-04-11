@@ -33,7 +33,7 @@ public partial class Order
 
     public string? TypeOfCard { get; set; }
 
-    public int? Fraud { get; set; }
+    public bool? Fraud { get; set; }
 
     public virtual Customer? Customer { get; set; }
 
