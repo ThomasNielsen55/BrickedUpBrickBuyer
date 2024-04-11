@@ -4,6 +4,7 @@ using BrickedUpBrickBuyer.Data.ViewModels;
 //using BrickedUpBrickBuyer.Models;
 //using BrickedUpBrickBuyer.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Identity.Client;
 
 namespace BrickedUpBrickBuyer.Controllers
 {
@@ -56,20 +57,41 @@ namespace BrickedUpBrickBuyer.Controllers
             {
                 Products = _brickRepository.Products
                 .Where(x => (primaryColor ==null || x.PrimaryColor == primaryColor || x.SecondaryColor == primaryColor) && (x.Category.Contains(category) || category ==null))
-
                 .OrderBy(x => x.Name),
                 CurrentColor = primaryColor,
                 CurrentCategory = category,
             }; 
             return View(productInfos);
         }
+        public IActionResult Privacy()
+        {
+            return View();
+        }
+        public IActionResult Confirmation()
+        {
+            return View();
+        }
+        public IActionResult Review()
+        {
+            return View();
+        }
+        public IActionResult Contact()
+        {
+            return View();
+        }
+
         public IActionResult Login()
         {
             return View();
         }
-        public IActionResult SelectedProduct()
+        public IActionResult SelectedProduct(int productnum = 1)
         {
-            return View();
+            var Productguy = new Product();
+            Productguy = _brickRepository.Products.ToList()
+                .Where(x => x.ProductId == productnum)
+                .FirstOrDefault();
+
+            return View(Productguy);
         }
 
         //[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

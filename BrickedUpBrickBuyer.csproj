@@ -23,7 +23,6 @@
 
   <ItemGroup>
     <Folder Include="Components\" />
-    <Folder Include="Data\ViewModels\" />
     <Folder Include="Infrastructure\" />
     <Folder Include="Migrations\" />
     <Folder Include="Views\Shared\Components\" />

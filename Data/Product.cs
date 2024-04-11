@@ -11,7 +11,7 @@ public partial class Product
 
     public string? Name { get; set; }
 
-    public string? Year { get; set; }
+    public int? Year { get; set; }
 
     public int? NumParts { get; set; }
 
