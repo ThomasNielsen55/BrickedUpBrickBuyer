@@ -24,6 +24,7 @@
       <th>Card</th>
       <th>Fraud</th>
       <th>Edit</th>
+      <th>Delete</th>
     </tr>
   </thead>
 
@@ -43,11 +44,8 @@
             <td>@x.Bank</td>
             <td>@x.TypeOfCard</td>
             <td>@x.Fraud?.ToString()</td>
-            <td>
-                <a method="get" asp-controller="Admin" asp-action="EditOrder" asp-route-orderid="@x.TransactionId">
-                    <div style="background-color: #FFD700; border: solid; border-color: #E3000B; color: black; padding: 5px; text-align: center; text-decoration: none; display: inline-block; font-size: 12px; border-radius: 10px;">Edit/Delete</div>
-                </a>
-            </td>
+            <td><a class="btn btn-info" asp-controller="Admin" asp-action="EditOrder" asp-route-orderid="@x.TransactionId">Edit</a></td>
+            <td><a class="btn btn-danger" asp-controller="Admin" asp-action="DeleteOrder" asp-route-orderid="@x.TransactionId">Delete</a></td>
         </tr>
         }
   </tbody>

@@ -21,6 +21,7 @@
       <th>Description</th>
       <th>Category</th>
       <th>Edit</th>
+      <th>Delete</th>
     </tr>
   </thead>
 
@@ -38,11 +39,8 @@
                 <td>@x.SecondaryColor</td>  
                 <td>@x.Description</td>
                 <td>@x.Category</td>
-                <td>
-                    <a method="get" asp-controller="Admin" asp-action="EditProduct" asp-route-productid="@x.ProductId">
-                        <div style="background-color: #FFD700; border: solid; border-color: #E3000B; color: black; padding: 5px; text-align: center; text-decoration: none; display: inline-block; font-size: 12px; border-radius: 10px;">Edit/Delete</div>
-                    </a>
-                </td>
+                <td><a class="btn btn-info" asp-controller="Admin" asp-action="EditProduct" asp-route-productid="@x.ProductId">Edit</a></td>
+                <td><a class="btn btn-danger" asp-controller="Admin" asp-action="DeleteProduct" asp-route-productid="@x.ProductId">Delete</a></td>
             </tr>
         }
   </tbody>

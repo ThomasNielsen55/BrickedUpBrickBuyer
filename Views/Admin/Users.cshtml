@@ -17,25 +17,24 @@
       <th>Gender</th>
       <th>Age</th>
       <th>Edit</th>
+      <th>Delete</th>
     </tr>
   </thead>
 
   <tbody>
-    @foreach (var x in Model)  {
-    <tr>
-      <td>@x.customer_ID</td>
-      <td>@x.first_name</td>  
-      <td>@x.last_name</td>   
-      <td>@x.birth_date</td>
-      <td>@x.country_of_residence</td>  
-      <td>@x.gender</td>  
-      <td>@x.age?.ToString("0.0")</td>
-      <td>
-        <a method="get" asp-controller="Admin" asp-action="EditUser" asp-route-userid="@x.customer_ID">
-            <div style="background-color: #FFD700; border: solid; border-color: #E3000B; color: black; padding: 5px; text-align: center; text-decoration: none; display: inline-block; font-size: 12px; border-radius: 10px;">Edit/Delete</div>
-        </a>
-      </td>
-    </tr>
+        @foreach (var x in Model)
+        {
+            <tr>
+                <td>@x.customer_ID</td>
+                <td>@x.first_name</td>
+                <td>@x.last_name</td>
+                <td>@x.birth_date</td>
+                <td>@x.country_of_residence</td>
+                <td>@x.gender</td>
+                <td>@x.age?.ToString("0.0")</td>
+                <td><a class="btn btn-info" asp-controller="Admin" asp-action="EditUser" asp-route-userid="@x.customer_ID">Edit</a></td>
+                <td><a class="btn btn-danger" asp-controller="Admin" asp-action="DeleteUser" asp-route-userid="@x.customer_ID">Delete</a></td>
+            </tr>
         }
-  </tbody>
+    </tbody>
 </table>
